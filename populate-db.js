@@ -9,6 +9,9 @@ http
   .get()
   .then(response => {    
     data = response.data.results;
+    data = data.slice(0, 100);
+    console.log(data.length);
+    debugger;
     console.log(response.data.results);
     connectToSql();
   })
@@ -37,7 +40,7 @@ function connectToSql() {
     }
   });
 };
-
+// need to figure out how to add genre_ids
 function addToDb() {
   console.log("adding to db");
   for (var i = 0; i < data.length; i++) {

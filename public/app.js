@@ -26,7 +26,7 @@ app.controller('myCtrl', function ($scope, $http, $uibModal) {
           return movie;
         }
       }
-    }).result.then(function(){}, function(res){})
+    }).result.then(function () { }, function (res) { })
   };
 
 });
@@ -35,7 +35,7 @@ app.controller('modalCtrl', function ($scope, $http, $uibModal, movie) {
   $scope.movie = movie;
   $http({
     method: "GET",
-    url: "https://image.tmdb.org/t/p/w500/"+movie.poster_path
+    url: "https://image.tmdb.org/t/p/w500/" + movie.poster_path
   }).then(function mySuccess(response) {
     $scope.image = response.data;
   }, function myError(error) {

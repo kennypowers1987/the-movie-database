@@ -6,36 +6,37 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 
-  <body>
+<body>
 
-    <div ng-app="myApp" ng-controller="myCtrl" class="container">
+  <div ng-app="myApp" ng-controller="myCtrl" class="container">
     </br>
-      <table class="table table-striped table-responsive table-bordered">
-        <thead>
-          <tr>
-            <td style="cursor:pointer" ng-click="sortType = 'title'; sortReverse = !sortReverse">
-              <strong>Title</strong>
-            </td>
-            <td style="cursor:pointer" ng-click="sortType = 'release_date'; sortReverse = !sortReverse">
-              <strong>Release Date</strong>
-            </td>
-            <td style="cursor:pointer" ng-click="sortType = 'vote_count'; sortReverse = !sortReverse">
-              <strong>Vote Count</strong>
-            </td>
-          </tr>
-        </thead>
-        <tr ng-repeat="x in data | orderBy:sortType:sortReverse">
-          <td>
-            <a href="#" ng-click="openModal(x)">{{x.title}}</a>
+    <table class="table table-striped table-responsive table-bordered">
+      <thead>
+        <tr>
+          <td style="cursor:pointer" ng-click="sortType = 'title'; sortReverse = !sortReverse">
+            <strong>Title</strong>
           </td>
-          <td>
-            {{x.release_date | date}}
+          <td style="cursor:pointer" ng-click="sortType = 'release_date'; sortReverse = !sortReverse">
+            <strong>Release Date</strong>
           </td>
-          <td>
-            {{x.vote_count}}
+          <td style="cursor:pointer" ng-click="sortType = 'vote_count'; sortReverse = !sortReverse">
+            <strong>Vote Count</strong>
           </td>
         </tr>
-      </table>
-    </div>
-  </body>
+      </thead>
+      <tr ng-repeat="x in data | orderBy:sortType:sortReverse">
+        <td>
+          <a href="#" ng-click="openModal(x)">{{x.title}}</a>
+        </td>
+        <td>
+          {{x.release_date | date}}
+        </td>
+        <td>
+          {{x.vote_count}}
+        </td>
+      </tr>
+    </table>
+  </div>
+</body>
+
 </html>

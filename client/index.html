@@ -13,13 +13,13 @@
       <table class="table table-striped table-responsive table-bordered">
         <thead>
           <tr>
-            <td>
+            <td style="cursor:pointer" ng-click="sortType = 'title'; sortReverse = !sortReverse">
               <strong>Title</strong>
             </td>
-            <td>
+            <td style="cursor:pointer" ng-click="sortType = 'release_date'; sortReverse = !sortReverse">
               <strong>Release Date</strong>
             </td>
-            <td>
+            <td style="cursor:pointer" ng-click="sortType = 'vote_count'; sortReverse = !sortReverse">
               <strong>Vote Count</strong>
             </td>
           </tr>

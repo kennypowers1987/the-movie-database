@@ -26,10 +26,10 @@
         </thead>
         <tr ng-repeat="x in data | orderBy:sortType:sortReverse">
           <td>
-            {{x.title}}
+            <a href="#" ng-click="openModal(x)">{{x.title}}</a>
           </td>
           <td>
-            {{x.release_date}}
+            {{x.release_date | date}}
           </td>
           <td>
             {{x.vote_count}}

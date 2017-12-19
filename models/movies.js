@@ -1,16 +1,16 @@
 var db = require('../config/connection.js'); //reference of dbconnection.js  
 var Price = {
   getAllMovies: function (callback) {
-    return db.connect(function (err) {
+    db.connect(function (err) {
       if (err)
         throw err
       else {
-        db.query("Select * from movies", callback);
+       return db.query("Select * from movies", callback);
       }
     })
   },
   getMovieById: function (id, callback) {
-    return db.connect(function (err) {
+    db.connect(function (err) {
       if (err)
         throw err
       else {

@@ -30,6 +30,7 @@ var Gather = {
                       .then(response => {
                         data = data.concat(response.data.results);
                         console.log(data.length);
+                        console.log(data);
                         db.query("CREATE DATABASE IF NOT EXISTS candidate_leek", function (err, result) {
                           if (err) {
                             throw err;

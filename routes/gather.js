@@ -1,7 +1,7 @@
 
 var express = require('express');
 var router = express.Router();
-var Gather = require('../models/Gather');
+var Gather = require('../models/gather');
 router.get('/', function (req, res, next) {
   Gather.getAllMovies(req.params.time, function (err, rows) {
     if (err) {

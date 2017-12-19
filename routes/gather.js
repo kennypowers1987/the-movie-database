@@ -8,7 +8,6 @@ router.get('/', function (req, res, next) {
       res.json(err);
     } else {
       res.json(rows);
-      Gather.addToDb();
     }
   });
 

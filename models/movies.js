@@ -1,7 +1,7 @@
 var db = require('../config/connection.js'); //reference of dbconnection.js  
 var Price = {
   getAllMovies: function (callback) {
-    return db.query("Select * from movies", callback);
+    return db.query("Select * from movies LIMIT 20", callback);
   },
   getMovieById: function (time, callback) {
     return db.query("select * from movies where id=?", [id], callback);

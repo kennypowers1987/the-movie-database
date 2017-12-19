@@ -13,15 +13,15 @@ var Gather = {
         console.log(data.length);
         debugger;
         console.log(response.data.results);
-        db.connect(function (err) {
-          if (err) {
-            db.end();
-            throw err;
-          }
-          else {
-            console.log("Connected to MySQL");
-          }
-        });
+        // db.connect(function (err) {
+        //   if (err) {
+        //     db.end();
+        //     throw err;
+        //   }
+        //   else {
+        //     console.log("Connected to MySQL");
+        //   }
+        // });
         db.query("CREATE DATABASE IF NOT EXISTS candidate_leek", function (err, result) {
           if (err) {
             db.end();

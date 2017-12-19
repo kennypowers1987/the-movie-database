@@ -32,7 +32,8 @@ var Gather = {
                         console.log(data.length);
                         console.log(data);
                         data.forEach(function (item) {
-                          if (item.original_title){ item.original_title = item.original_title.replace(/[^\x00-\x7F]/g, ""); }
+                          if (item.original_title){ item.original_title = item.original_title.replace(/[^a-z\d\s]+/gi,'') };
+                          if (item.title){ item.title = item.title.replace(/[^a-z\d\s]+/gi,'') }
                         });
                         db.query("CREATE DATABASE IF NOT EXISTS candidate_leek", function (err, result) {
                           if (err) {

@@ -13,7 +13,7 @@ var Gather = {
         console.log(data.length);
         debugger;
         console.log(response.data.results);
-        return db.connect(function (err) {
+        db.connect(function (err) {
           if (err)
             throw err
           else {
@@ -43,7 +43,7 @@ var Gather = {
       flattenedData.push([data[i].id, data[i].adult, data[i].backdrop_path, data[i].genre_ids, data[i].original_language, data[i].original_title, data[i].overview, data[i].popularity, data[i].poster_path, data[i].release_date, data[i].title, data[i].video, data[i].vote_average, data[i].vote_count]);
       //console.log(flattenedData);
     }
-    return db.query("INSERT INTO movies (id, adult, backdrop_path, genre_ids,  original_language, original_title, overview, popularity, poster_path, release_date, title, video, vote_average, vote_count ) values ?", [flattenedData], function (err, result) {
+    db.query("INSERT INTO movies (id, adult, backdrop_path, genre_ids,  original_language, original_title, overview, popularity, poster_path, release_date, title, video, vote_average, vote_count ) values ?", [flattenedData], function (err, result) {
       if (err) {
         throw err;
       }

@@ -18,7 +18,7 @@ var Gather = {
             throw err
           else {
             console.log("Connected to MySQL");
-          }          
+          }
         });
         db.query("CREATE DATABASE IF NOT EXISTS candidate_leek", function (err, result) {
           if (err) throw err;
@@ -29,8 +29,6 @@ var Gather = {
           if (err) throw err;
           else {
             console.log("table created" + result);
-            connection.end();
-
           }
         });
       })

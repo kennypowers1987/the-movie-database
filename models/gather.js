@@ -35,7 +35,7 @@ var Gather = {
             flattenedData.push([data[i].id, data[i].adult, data[i].backdrop_path, JSON.stringify(data[i].genre_ids), data[i].original_language, data[i].original_title, data[i].overview, data[i].popularity, data[i].poster_path, data[i].release_date, data[i].title, data[i].video, data[i].vote_average, data[i].vote_count]);
             //console.log(flattenedData);
           }
-          db.query("INSERT INTO movies (id, adult, backdrop_path, genre_ids,  original_language, original_title, overview, popularity, poster_path, release_date, title, video, vote_average, vote_count ) values ?", [flattenedData], function (err, result) {
+          db.query("INSERT INTO movies (id, adult, backdrop_path, genre_ids,  original_language, original_title, overview, popularity, poster_path, release_date, title, video, vote_average, vote_count ) values ? ON DUPLICATE KEY UPDATE", [flattenedData], function (err, result) {
             if (err) {
               throw err;
             }

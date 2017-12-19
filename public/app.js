@@ -7,6 +7,7 @@ app.controller('myCtrl', function ($scope, $http, $uibModal) {
     method: "GET",
     url: "http://candidate-test.icapture.com:8081/movies"
   }).then(function mySuccess(response) {
+    console.log(response.data.length);
     $scope.data = response.data;
   }, function myError(error) {
     $scope.error = error;

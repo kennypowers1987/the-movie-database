@@ -14,19 +14,27 @@ var Gather = {
         debugger;
         console.log(response.data.results);
         db.connect(function (err) {
-          if (err)
-            throw err
+          if (err) {
+            db.end();
+            throw err;
+          }
           else {
             console.log("Connected to MySQL");
           }
         });
         db.query("CREATE DATABASE IF NOT EXISTS candidate_leek", function (err, result) {
-          if (err) throw err;
-          console.log(result);
+          if (err) {
+            db.end();
+            throw err;
+          }
+          else console.log(result);
         });
         var sql = "CREATE TABLE if not exists `movies` (`id` int(11) NOT NULL,`adult` varchar(10) DEFAULT NULL,`backdrop_path` varchar(100) DEFAULT NULL, `genre_ids` text, `original_language` varchar(20) DEFAULT NULL,`original_title` varchar(100) DEFAULT NULL,`overview` text,`popularity` decimal(10,6) DEFAULT NULL,`poster_path` varchar(100) DEFAULT NULL, `release_date` datetime DEFAULT NULL, `title` varchar(100) DEFAULT NULL, `video` varchar(10) DEFAULT NULL, `vote_average` decimal(4,2) DEFAULT NULL, `vote_count` int(11) DEFAULT NULL, PRIMARY KEY (`id`))";
         db.query(sql, function (err, result) {
-          if (err) throw err;
+          if (err) {
+            db.end();
+            throw err;
+          }
           else {
             console.log("table created" + result);
           }
@@ -45,10 +53,12 @@ var Gather = {
     }
     db.query("INSERT INTO movies (id, adult, backdrop_path, genre_ids,  original_language, original_title, overview, popularity, poster_path, release_date, title, video, vote_average, vote_count ) values ?", [flattenedData], function (err, result) {
       if (err) {
+        db.end();
         throw err;
       }
       else {
         console.log(result);
+        db.end();
         return result;
       }
     });

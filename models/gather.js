@@ -35,6 +35,7 @@ var Gather = {
           }
           else {
             return console.log("table created" + result);
+            Gather.addToDb();
           }
         });
       })

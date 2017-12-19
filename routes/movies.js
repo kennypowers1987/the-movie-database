@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var Movie = require('../models/Movies');
+var Movie = require('../models/movies');
 router.get('/:id?', function (req, res, next) {
   if (req.params.id) {
     Movie.getMovieById(req.params.time, function (err, rows) {

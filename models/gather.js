@@ -28,7 +28,7 @@ var Gather = {
               if (err) throw err;
               else {
                 console.log("table created" + result);
-                connection.end();
+                db.connection.end();
               }
             });
           }
@@ -55,7 +55,7 @@ var Gather = {
           }
           else {
             console.log(result);
-            connection.end();
+            db.connection.end();
           }
         });
       };
